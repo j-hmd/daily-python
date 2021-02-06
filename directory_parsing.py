@@ -1,14 +1,18 @@
 import os
 
-# This is pretty neat! We can print the directories, it outputs a list of the names!
-# and it includes file names in that directory as well.
 
-# os.listdir('/') prints the directory names from the root directory. Even in windows!
+"""
+Prints directories from the repository root.
+"""
+def get_directories(dirPath):
+    dirs = []
+    with os.scandir(path=dirPath) as it:
+        for entry in it:
+            if not entry.name.startswith('.') and entry.is_dir():
+                dirs.append(entry)
 
-def print_directories():
-    dirNames = os.listdir('/')
-    print(dirNames)
-
+    return dirs
+    
 if __name__ == '__main__':
-    print_directories()
+    get_directories('.')
 
