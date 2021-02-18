@@ -21,6 +21,10 @@ class CribbageDeck(DeckList):
 def card_factory(rank, suit):
     return BlackjackCard(rank, suit)
 
+# More on ISP: Lott says that the ISP suggests separating the building, 
+# modifying, retrieving, etc, of a particular object to another class
+# so the individual parts don't influence the others by their change.
+
 # Moving on, we analyze the deck and shoe classes, they have a lot in common,
 # but Lott suggests that because the shoe has different functionality of 
 # burning, this would suggest another class with shared functionality
